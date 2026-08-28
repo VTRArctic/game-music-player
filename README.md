@@ -46,20 +46,3 @@ Cloudflare R2 / Backblaze B2
 The browser streams the audio directly from object storage.
 
 If the audio host is on another domain and you use Web Audio API features later, configure CORS on the audio bucket.
-
-## Important
-
-Only host audio for which you have permission to redistribute. This project is a player; it does not grant rights to copyrighted recordings.
-
-## Suggested next additions
-
-- Categories and playlist tabs
-- Composer/game filters
-- Queue management
-- Album art
-- Media Session API controls
-- PWA/offline support
-- Crossfade
-- Audio visualizer
-- M3U/JSON playlist import
-- Virtualized rendering for very large playlists
