@@ -1,0 +1,102 @@
+:root {
+  --bg: #101217;
+  --panel: #181b22;
+  --panel2: #20242d;
+  --border: #303641;
+  --text: #e8ebf0;
+  --muted: #89919f;
+  --accent: #e6b84d;
+  --danger: #d86666;
+  --good: #65bd78;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+button, input { font: inherit; }
+button {
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  color: var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.18); }
+
+.app { max-width: 1250px; margin: auto; min-height: 100vh; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px; border-bottom: 1px solid var(--border);
+}
+h1 { margin: 0; font-size: 19px; letter-spacing: 2px; }
+.muted { color: var(--muted); font-size: 13px; }
+.top-actions { display: flex; gap: 7px; }
+.top-actions button { width: 40px; height: 36px; }
+
+.player { padding: 22px; background: #14171d; border-bottom: 1px solid var(--border); }
+.now-playing { display: flex; gap: 16px; align-items: center; }
+.cover {
+  width: 72px; height: 72px; display: grid; place-items: center;
+  background: var(--panel2); border: 1px solid var(--border);
+  font-size: 32px; color: var(--accent);
+}
+#title { font-size: 20px; font-weight: 650; margin-bottom: 5px; }
+.progress-row { display: grid; grid-template-columns: 42px 1fr 42px; gap: 10px; align-items: center; margin-top: 20px; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.controls { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 15px; }
+.transport, .play { width: 46px; height: 40px; }
+.play { width: 58px; font-size: 19px; }
+.volume { display: flex; align-items: center; gap: 8px; margin-left: 22px; width: 180px; }
+
+.content { display: grid; grid-template-columns: 250px 1fr; min-height: 600px; }
+.sidebar { padding: 16px; border-right: 1px solid var(--border); }
+#search {
+  width: 100%; padding: 10px; background: var(--panel);
+  border: 1px solid var(--border); border-radius: 5px; color: var(--text);
+}
+.filters { display: grid; gap: 7px; margin-top: 14px; }
+.filter { text-align: left; padding: 9px 11px; }
+.filter.active { border-color: var(--accent); color: var(--accent); }
+.import-export { display: flex; gap: 7px; margin-top: 20px; }
+.import-export button, .file-button { padding: 8px 10px; }
+.file-button { border: 1px solid var(--border); background: var(--panel2); border-radius: 5px; cursor: pointer; }
+.file-button input { display: none; }
+
+.playlist-panel { min-width: 0; }
+.playlist-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  color: var(--muted); font-size: 13px;
+}
+.playlist { padding: 5px 0; }
+.track {
+  display: grid; grid-template-columns: 38px 1fr auto auto;
+  gap: 10px; align-items: center; padding: 10px 14px;
+  border-bottom: 1px solid #232730;
+}
+.track:hover { background: var(--panel); }
+.track.current { background: #28251d; }
+.track-number { color: var(--muted); text-align: right; }
+.track-main { min-width: 0; cursor: pointer; }
+.track-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.track button { border: 0; background: transparent; padding: 5px 7px; }
+.star.chosen { color: var(--accent); }
+.block.blocked { color: var(--danger); }
+
+dialog { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 8px; }
+.dialog { min-width: 300px; padding: 20px; display: grid; gap: 16px; }
+.dialog h2 { margin-top: 0; }
+.dialog label { display: flex; justify-content: space-between; }
+
+@media (max-width: 700px) {
+  .content { grid-template-columns: 1fr; }
+  .sidebar { border-right: 0; border-bottom: 1px solid var(--border); }
+  .track { grid-template-columns: 28px 1fr auto; }
+  .track .block { display: none; }
+  .volume { width: 120px; margin-left: 8px; }
+}
